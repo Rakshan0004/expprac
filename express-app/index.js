@@ -3,18 +3,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require('path');
 const members = require('./Members');
-const moment = require('moment');
 
-const logger = (req, res, next) => {
-    console.log(
-        `${req.protocol}://${req.get('host')}${req.originalUrl
-        }: ${moment().format()}`
-    );
-    next();
-};
+const logger = require('./middleware/logger');
+
 
 // Init middleware
-app.use(logger);
+//app.use(logger);
 
 
 //Get all members
